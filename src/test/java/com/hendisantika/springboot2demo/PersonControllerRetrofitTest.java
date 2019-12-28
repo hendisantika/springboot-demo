@@ -1,9 +1,9 @@
 package com.hendisantika.springboot2demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Value;
 import okhttp3.OkHttpClient;
 import org.junit.Before;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
