@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.PersonService;
 
+import java.beans.ConstructorProperties;
+
 /**
  * Created by IntelliJ IDEA.
  * Project : spring-boot2-demo
@@ -19,4 +21,13 @@ import service.PersonService;
 class PersonController {
     @NonNull
     private final PersonService persons;
+
+    @ConstructorProperties({"persons"})
+    PersonController(@NonNull PersonService persons) {
+        if (persons == null) {
+            throw new NullPointerException("persons");
+        } else {
+            this.persons = persons;
+        }
+    }
 }
