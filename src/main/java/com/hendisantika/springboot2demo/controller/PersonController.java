@@ -2,9 +2,7 @@ package com.hendisantika.springboot2demo.controller;
 
 import com.hendisantika.springboot2demo.model.Person;
 import lombok.NonNull;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import service.PersonService;
 
 import java.beans.ConstructorProperties;
@@ -27,6 +25,12 @@ class PersonController {
     @GetMapping({"/johnsmith"})
     public Person hello() {
         return this.persons.johnSmith();
+    }
+
+
+    @PostMapping({"/hello"})
+    public String postHello(@RequestBody Person person) {
+        return this.persons.hello(person);
     }
 
     @ConstructorProperties({"persons"})
