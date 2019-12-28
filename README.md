@@ -5,7 +5,13 @@ Spring Boot 2 Demo Application
 
 ```
 $ curl -XPOST -H 'Content-type: application/json' -d '{"firstname": "Uzumaki","lastname":"Naruto"}' http://localhost:8080/person/hello
-Hello John Smith!
 ```
+
+## Authorize Request
+```
+curl -XPOST -H 'Content-type: application/json' -d '{"firstname": "Uzumaki","lastname":"Naruto"}' http://admin:passw0rd@localhost:8080/person/hello
+```
+
+
 
 See [Spring Boot Rest Tutorial](https://octoperf.com/blog/2018/02/22/spring-boot-rest-tutorial/).
