@@ -1,9 +1,10 @@
 package com.hendisantika.springboot2demo.controller;
 
+import com.hendisantika.springboot2demo.exception.DemoException;
 import com.hendisantika.springboot2demo.model.Person;
+import com.hendisantika.springboot2demo.service.PersonService;
 import lombok.NonNull;
 import org.springframework.web.bind.annotation.*;
-import service.PersonService;
 
 import java.beans.ConstructorProperties;
 
@@ -42,5 +43,8 @@ class PersonController {
         }
     }
 
-
+    @GetMapping("/exception")
+    public void exception() throws DemoException {
+        throw new DemoException();
+    }
 }

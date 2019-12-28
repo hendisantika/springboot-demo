@@ -1,4 +1,4 @@
-package service;
+package com.hendisantika.springboot2demo.service;
 
 import com.hendisantika.springboot2demo.model.Person;
 

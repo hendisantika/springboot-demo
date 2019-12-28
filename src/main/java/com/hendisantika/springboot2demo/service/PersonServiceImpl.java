@@ -1,4 +1,4 @@
-package service;
+package com.hendisantika.springboot2demo.service;
 
 import com.hendisantika.springboot2demo.model.Person;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  * Time: 06.30
  */
 @Service
-final class DemoPersonService implements PersonService {
+final class PersonServiceImpl implements PersonService {
     @Override
     public Person johnSmith() {
         final Person person = new Person();
