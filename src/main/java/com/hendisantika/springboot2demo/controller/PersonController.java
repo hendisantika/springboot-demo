@@ -1,6 +1,8 @@
 package com.hendisantika.springboot2demo.controller;
 
+import com.hendisantika.springboot2demo.model.Person;
 import lombok.NonNull;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.PersonService;
@@ -22,6 +24,11 @@ class PersonController {
     @NonNull
     private final PersonService persons;
 
+    @GetMapping({"/johnsmith"})
+    public Person hello() {
+        return this.persons.johnSmith();
+    }
+
     @ConstructorProperties({"persons"})
     PersonController(@NonNull PersonService persons) {
         if (persons == null) {
@@ -30,4 +37,6 @@ class PersonController {
             this.persons = persons;
         }
     }
+
+
 }
