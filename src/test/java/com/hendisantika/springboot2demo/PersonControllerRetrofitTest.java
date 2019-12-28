@@ -1,8 +1,12 @@
 package com.hendisantika.springboot2demo;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Value;
+import okhttp3.OkHttpClient;
+import org.junit.Before;
 import org.springframework.boot.test.context.SpringBootTest;
 import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
@@ -22,4 +26,17 @@ public class PersonControllerRetrofitTest {
     private int port;
 
     private Retrofit retrofit;
+
+    @Before
+    public void setUp() {
+        final OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new BasicAuthInterceptor("admin", "passw0rd"))
+                .build();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://localhost:" + port)
+                .client(client)
+                .addConverterFactory(JacksonConverterFactory.create(new ObjectMapper()))
+                .build();
+    }
 }
