@@ -41,4 +41,23 @@ scp -i key/id_rsa target/spring-boot2-demo-0.0.1-SNAPSHOT.jar root@157.245.100.2
 scp -i key/id_rsa spring-boot.service root@157.245.100.221:/etc/systemd/system
 ```
 
+## Run and Test the SpringBoot Web App
+
+**Run the SpringBoot Web App**
+
+Start the service (This needs to be run from the terminal we used to ssh into the Droplet)
+
+```shell
+systemctl start spring-boot.service
+```
+
+## Bonus (Optional Step):
+
+You can make sure to bring the service up in case of a Droplet restart, by using the following command in the Droplet (
+Run in the ssh session).
+
+```shell
+systemctl enable spring-boot.service
+```
+
 See [Spring Boot Rest Tutorial](https://octoperf.com/blog/2018/02/22/spring-boot-rest-tutorial/).
